@@ -1,0 +1,4 @@
+{% autoescape off %}
+    To activate your account, please, proceed to
+    http://{{ domain }}{% url 'activation' uidb64=uid token=token %}  
+{% endautoescape %}
