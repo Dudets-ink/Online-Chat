@@ -16,8 +16,7 @@ def send_email(request, recipient, username, password, template):
     ) as connection:
         subject = 'Activate your account'
         email_from = settings.EMAIL_HOST_USER
-        # recipeint_list = [recipient]
-        recipeint_list = ['just.box91@mail.ru']
+        recipeint_list = [recipient]
         message = template
         
         emessage = EmailMessage(subject, message, email_from, recipeint_list,

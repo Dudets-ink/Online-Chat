@@ -31,7 +31,7 @@ class SignIn(FormView):
     model = User
     form_class = SignInForm
     success_url = reverse_lazy('index')
-    template_name = 'sign_in.html'
+    template_name = 'users/sign_in.html'
     
     def form_valid(self, form):
         user = User.objects.filter(
@@ -62,7 +62,7 @@ class SignUp(FormView):
     model = User
     form_class = SignUpForm
     success_url = reverse_lazy('index')
-    template_name = 'sign_up.html'
+    template_name = 'users/sign_up.html'
     
     def form_valid(self, form):
         user = User.objects.filter(Q(username=form.data['username']) |
@@ -88,10 +88,9 @@ class SignUp(FormView):
         user.is_active = False
         user.save()
         
-        template = render_to_string('activ_acc_email.html', {
+        template = render_to_string('users/activ_acc_email.html', {
             'domain': get_current_site(self.request),
             'uid': urlsafe_base64_encode(force_bytes(user.pk)), 
-            # 'uid': user.pk,
             'token': tokens.generate_acc_token.make_token(user)
         })
         
@@ -103,10 +102,7 @@ class SignUp(FormView):
     
 def activation(request, uidb64, token):
     try:
-        print('\n\n\n\n\n\n', uidb64)
-        print('\n\n\n\n\n\n', urlsafe_base64_decode(uidb64))
         uid = force_str(urlsafe_base64_decode(uidb64))
-        print('\n\n\n\n\n\n', uid)
         user = User.objects.get(pk=uid)
     except (TypeError, ValueError, User.DoesNotExist, OverflowError):
         user = None

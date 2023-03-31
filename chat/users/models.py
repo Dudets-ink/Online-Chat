@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    """User class with already implemented username, email and 
-    is_active fields from inheritance.
+    """User class inherits username, email and 
+    is_active fields from AbstractUser.
     """
     password = models.CharField(max_length=256)
