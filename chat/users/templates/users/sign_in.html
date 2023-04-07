@@ -1,0 +1,12 @@
+{% extends 'users/sign.html' %}
+
+
+
+{% block content %}
+    {{ block.super }}
+    
+    <p>
+        Haven't registred yet? 
+        <a href="{% url 'sign_up' %}">Join now</a>
+    </p>
+{% endblock content %}
