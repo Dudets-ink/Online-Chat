@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block css %}
+    {% load static %}
+{% endblock css %}
+
+{% block content %}
+    <textarea id="chat-log" cols="75" rows="25"></textarea><br>
+    <input id="chat-message-input" size='50' type="text">
+    <input id="chat-message-submit" type="button" value="Send">
+    {{ room_name|json_script:"room-name" }}
+    {{ user.username|json_script:"username"}}
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'main/js/chat_room.js' %}"></script>
+{% endblock js %}

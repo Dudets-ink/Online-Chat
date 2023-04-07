@@ -1,0 +1,31 @@
+body {
+  text-align: center;
+  background: 5%/5% url('../media/chat.png');
+}
+
+main {
+  width: 50%;
+  display: inline-block;
+  background-color: #f8f9fa;
+  height: 75vh;
+}
+
+.navbar {
+  background-color: #28a745;
+  color: #fff;
+}
+.navbar-brand {
+  color: #fff;
+}
+.navbar-nav .nav-link {
+  color: #fff;
+}
+
+.n-brand {
+  margin-left: 15px;
+}
+
+.n-item {
+  margin-right: 15px;
+  margin-left: 15px;
+}
